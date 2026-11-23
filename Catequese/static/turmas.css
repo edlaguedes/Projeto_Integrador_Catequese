@@ -1,0 +1,245 @@
+/* =========================
+   CONFIGURAÇÕES GERAIS
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+
+    background-color: #680505;
+
+    color: white;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+    width: 100%;
+
+    max-width: 700px;
+
+    padding: 45px 25px;
+}
+
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+header {
+    text-align: center;
+
+    margin-bottom: 35px;
+}
+
+
+.logo img {
+    width: 110px;
+
+    height: 110px;
+
+    object-fit: contain;
+
+    margin-bottom: 5px;
+}
+
+
+.header-text h1 {
+    font-size: 28px;
+
+    font-weight: 700;
+
+    margin-bottom: 8px;
+}
+
+
+.header-text p {
+    font-size: 12px;
+
+    line-height: 18px;
+
+    font-weight: 400;
+
+    color: white;
+
+    max-width: 400px;
+
+    margin: auto;
+}
+
+
+/* =========================
+   TURMAS
+========================= */
+
+.turmas {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+}
+
+
+/* =========================
+   CARD DA TURMA
+========================= */
+
+.turma {
+    height: 105px;
+
+    background-color: white;
+
+    border-radius: 12px;
+
+    padding: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    text-decoration: none;
+
+    color: #680505;
+
+    transition: 0.2s;
+
+    border: 2px solid transparent;
+}
+
+
+.turma:hover {
+    transform: translateY(-3px);
+
+    border-color: white;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.20);
+}
+
+
+/* =========================
+   NÚMERO
+========================= */
+
+.numero {
+    width: 55px;
+
+    height: 55px;
+
+    border-radius: 10px;
+
+    background-color: #680505;
+
+    color: white;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================
+   INFORMAÇÕES
+========================= */
+
+.turma-info {
+    flex: 1;
+}
+
+
+.turma-info h2 {
+    font-size: 16px;
+
+    font-weight: 600;
+
+    margin-bottom: 3px;
+}
+
+
+.turma-info p {
+    font-size: 10px;
+
+    color: #777;
+}
+
+
+/* =========================
+   SETA
+========================= */
+
+.seta {
+    font-size: 30px;
+
+    font-weight: 300;
+
+    color: #680505;
+}
+
+
+/* =========================
+   RODAPÉ
+========================= */
+
+footer {
+    text-align: center;
+
+    margin-top: 35px;
+}
+
+
+footer p {
+    font-size: 10px;
+
+    color: white;
+
+    opacity: 0.8;
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 550px) {
+
+    .container {
+        padding: 30px 18px;
+    }
+
+    .turmas {
+        grid-template-columns: 1fr;
+    }
+
+    .turma {
+        height: 90px;
+    }
+
+    .numero {
+        width: 48px;
+        height: 48px;
+    }
+
+}

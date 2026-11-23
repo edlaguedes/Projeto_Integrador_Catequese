@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRISMA - Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+
+       <div class="logo">
+    <img src="{{ url_for('static', filename='image-removebg-preview.png') }}" alt="Logo">
+    
+</div>
+<div class="footer">
+    <a href="{{ url_for('login_pais') }}">
+        Acesso dos pais e responsáveis
+    </a>
+</div>
+    <main>
+        <h1>Login</h1>
+        <p>Insira seu nome de usuário e senha para fazer login.</p>
+    </main>
+
+    {% if erro %}
+        <div class="erro">{{ erro }}</div>
+    {% endif %}
+
+    <form method="POST" action="{{ url_for('login') }}">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="Email" required>
+
+        <label for="senha">Senha</label>
+        <input id="senha" name="senha" type="password" placeholder="Senha" required>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <div class="social-text">
+        <p>Ou entre com</p>
+    </div>
+
+    <div class="social">
+        <button type="button" disabled>Google</button>
+        <button type="button" disabled>Facebook</button>
+    </div>
+
+    <div class="footer">
+        <p>Usuário de demonstração: <strong>admin@crisma.com</strong></p>
+        <p>Senha: <strong>123456</strong></p>
+    </div>
+</div>
+</body>
+</html>

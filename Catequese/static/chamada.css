@@ -1,0 +1,552 @@
+/* =========================
+   CONFIGURAÇÕES GERAIS
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #680505;
+    color: white;
+    min-height: 100vh;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 35px 25px;
+}
+
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+.topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+
+/* LOGO */
+
+.logo img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+
+/* BOTÃO VOLTAR */
+
+.voltar {
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+
+    padding: 8px 12px;
+
+    border: 1px solid white;
+    border-radius: 7px;
+
+    transition: 0.2s;
+}
+
+.voltar:hover {
+    background-color: white;
+    color: #680505;
+}
+
+
+/* =========================
+   TÍTULO
+========================= */
+
+.titulo {
+    margin-bottom: 25px;
+}
+
+.subtitulo {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.titulo h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.titulo p:last-child {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+
+/* =========================
+   LEGENDA
+========================= */
+
+.legenda {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    margin-bottom: 20px;
+
+    font-size: 11px;
+}
+
+.legenda-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+
+/* BOLINHAS */
+
+.bolinha {
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+
+    display: inline-block;
+}
+
+.bolinha.normal {
+    background-color: #3cb371;
+}
+
+.bolinha.alerta {
+    background-color: #facc15;
+}
+
+
+/* =========================
+   TABELA
+========================= */
+
+.tabela-container {
+    width: 100%;
+
+    overflow-x: auto;
+
+    background-color: white;
+
+    border-radius: 12px;
+
+    padding: 10px;
+}
+
+
+/* TABELA */
+
+table {
+    width: max-content;
+    min-width: 100%;
+
+    border-collapse: collapse;
+
+    color: #680505;
+}
+
+
+/* =========================
+   CABEÇALHO DA TABELA
+========================= */
+
+th {
+    min-width: 145px;
+
+    height: 70px;
+
+    padding: 8px;
+
+    background-color: #680505;
+
+    color: white;
+
+    text-align: center;
+
+    border-right: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+
+/* COLUNA ALUNO */
+
+th.aluno-coluna {
+    min-width: 190px;
+
+    position: sticky;
+    left: 0;
+
+    z-index: 3;
+}
+
+
+/* COLUNA STATUS */
+
+th.status-coluna {
+    min-width: 130px;
+
+    position: sticky;
+    right: 0;
+
+    z-index: 3;
+}
+
+
+/* DIA */
+
+.dia {
+    font-size: 11px;
+    font-weight: 600;
+}
+
+
+/* DATA */
+
+.data {
+    font-size: 10px;
+    font-weight: 400;
+
+    margin-top: 3px;
+}
+
+
+/* =========================
+   CÉLULAS
+========================= */
+
+td {
+    min-width: 145px;
+
+    padding: 8px;
+
+    text-align: center;
+
+    background-color: white;
+
+    border-bottom: 1px solid #dddddd;
+    border-right: 1px solid #eeeeee;
+}
+
+
+/* NOME DO ALUNO */
+
+td.nome-aluno {
+    min-width: 190px;
+
+    text-align: left;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    position: sticky;
+    left: 0;
+
+    z-index: 2;
+
+    background-color: white;
+}
+
+
+/* STATUS */
+
+td.status {
+    min-width: 130px;
+
+    position: sticky;
+    right: 0;
+
+    z-index: 2;
+
+    background-color: white;
+}
+
+
+/* =========================
+   BOTÕES
+========================= */
+
+.botoes {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 5px;
+}
+
+
+.botoes button {
+    padding: 6px 8px;
+
+    border-radius: 6px;
+
+    font-family: 'Poppins', sans-serif;
+
+    font-size: 9px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+
+    outline: none;
+}
+
+
+/* =========================
+   BOTÃO PRESENTE - NORMAL
+========================= */
+
+.presente {
+    background-color: white;
+
+    border: 1px solid #3cb371;
+
+    color: #218838;
+}
+
+
+/* HOVER */
+
+.presente:hover {
+    background-color: #3cb371;
+
+    border-color: #3cb371;
+
+    color: white;
+}
+
+
+/* =========================
+   BOTÃO PRESENTE - SELECIONADO
+========================= */
+
+.presente.selecionado {
+    background-color: #3cb371;
+
+    border: 1px solid #3cb371;
+
+    color: white;
+
+    box-shadow: 0 0 0 2px rgba(60, 179, 113, 0.25);
+}
+
+
+/* =========================
+   BOTÃO FALTA - NORMAL
+========================= */
+
+.falta {
+    background-color: white;
+
+    border: 1px solid #dc3545;
+
+    color: #dc3545;
+}
+
+
+/* HOVER */
+
+.falta:hover {
+    background-color: #dc3545;
+
+    border-color: #dc3545;
+
+    color: white;
+}
+
+
+/* =========================
+   BOTÃO FALTA - SELECIONADO
+========================= */
+
+.falta.selecionado {
+    background-color: #dc3545;
+
+    border: 1px solid #dc3545;
+
+    color: white;
+
+    box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.25);
+}
+
+
+/* =========================
+   EFEITO AO CLICAR
+========================= */
+
+.botoes button:active {
+    transform: scale(0.95);
+}
+
+
+/* =========================
+   STATUS NORMAL
+========================= */
+
+.status-normal {
+    display: inline-block;
+
+    background-color: #d1fae5;
+
+    color: #166534;
+
+    padding: 4px 9px;
+
+    border-radius: 20px;
+
+    font-size: 9px;
+
+    font-weight: 700;
+}
+
+
+/* =========================
+   STATUS ALERTA
+========================= */
+
+.status-alerta {
+    display: inline-block;
+
+    background-color: #fef3c7;
+
+    color: #92400e;
+
+    padding: 4px 9px;
+
+    border-radius: 20px;
+
+    font-size: 9px;
+
+    font-weight: 700;
+}
+
+
+/* =========================
+   CONTADOR DE FALTAS
+========================= */
+
+.contador {
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 9px;
+
+    color: #777777;
+}
+
+
+/* =========================
+   OBSERVAÇÃO
+========================= */
+
+.observacao {
+    margin-top: 15px;
+
+    padding: 12px;
+
+    background-color: rgba(255, 255, 255, 0.12);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    border-radius: 8px;
+
+    font-size: 10px;
+
+    line-height: 16px;
+}
+
+
+    /* =========================
+    RESPONSIVIDADE
+    ========================= */
+
+        @media (max-width: 600px) {
+
+        .container {
+            padding: 25px 15px;
+        }
+
+        .titulo h1 {
+            font-size: 24px;
+        }
+
+        .legenda {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+    }
+
+    /* =========================
+    BOTÕES DE MÊS
+    ========================= */
+
+    .meses {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+
+        margin: 16px 0;
+    }
+
+
+    .meses a {
+        padding: 8px 14px;
+
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        border-radius: 8px;
+
+        background-color: transparent;
+        color: white;
+
+        font-family: 'Poppins', sans-serif;
+        font-size: 12px;
+        font-weight: 500;
+
+        text-decoration: none;
+
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+
+    .meses a:hover {
+        background-color: rgba(255, 255, 255, 0.15);
+        border-color: white;
+    }
+
+
+    /* MÊS SELECIONADO */
+
+    .meses a.ativo {
+        background-color: white;
+        border-color: white;
+
+        color: #680505;
+        font-weight: 600;
+    }
+}

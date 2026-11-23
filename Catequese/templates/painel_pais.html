@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CRISMA - Painel dos Responsáveis</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='pais.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="logo">
+        <img src="{{ url_for('static', filename='image-removebg-preview.png') }}"
+             alt="Logo CRISMA">
+    </div>
+
+    <main>
+        <h1>Olá, {{ responsavel_nome }}!</h1>
+        <p>Acompanhe a frequência dos seus catequizandos.</p>
+    </main>
+
+    {% for aluno in alunos %}
+
+        <section style="margin-top: 30px;">
+
+            <h2>{{ aluno.nome }}</h2>
+
+            <p><strong>Turma:</strong> {{ aluno.turma }}</p>
+
+            <div style="margin: 20px 0;">
+                <p><strong>Presenças:</strong> {{ aluno.presencas }}</p>
+                <p><strong>Faltas:</strong> {{ aluno.faltas }}</p>
+                <p><strong>Frequência:</strong> {{ aluno.percentual }}%</p>
+            </div>
+
+            <h3>Histórico de chamadas</h3>
+
+            {% if aluno.historico %}
+
+                {% for chamada in aluno.historico %}
+
+                    <div style="padding: 10px 0; border-bottom: 1px solid #ddd;">
+
+                        <strong>{{ chamada.data }}</strong>
+
+                        {% if chamada.status == "Presente" %}
+                            <span style="color: green;">Presente</span>
+                        {% else %}
+                            <span style="color: red;">Falta</span>
+                        {% endif %}
+
+                        {% if chamada.justificativa %}
+                            <p>Justificativa: {{ chamada.justificativa }}</p>
+                        {% endif %}
+
+                    </div>
+
+                {% endfor %}
+
+            {% else %}
+
+                <p>Nenhuma chamada registrada.</p>
+
+            {% endif %}
+
+        </section>
+
+        <hr style="margin: 30px 0;">
+
+    {% else %}
+
+        <p>Nenhum catequizando vinculado a este responsável.</p>
+
+    {% endfor %}
+
+    <div style="margin-top: 25px;">
+        <a href="{{ url_for('logout_pais') }}">Sair</a>
+    </div>
+
+</div>
+
+</body>
+</html>

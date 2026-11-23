@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CRISMA - Turmas</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='turmas.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+
+            <div class="logo">
+                <img src="{{ url_for('static', filename='image-removebg-preview.png') }}"
+                     alt="Logo CRISMA">
+            </div>
+
+            <div class="header-text">
+
+                <h1>Turmas</h1>
+
+                <p>
+                    Selecione uma turma para acessar os alunos e registrar a chamada.
+                </p>
+
+                <!-- ACESSO AO CADASTRO DE RESPONSÁVEIS -->
+                <div style="margin-top: 20px;">
+
+                    <a href="{{ url_for('responsaveis') }}"
+                       style="
+                           display: inline-block;
+                           background-color: #651c32;
+                           color: #ffffff;
+                           padding: 12px 20px;
+                           border-radius: 8px;
+                           text-decoration: none;
+                           font-weight: 500;
+                       ">
+                        Gerenciar responsáveis
+                    </a>
+
+                </div>
+
+            </div>
+
+            <a class="logout" href="{{ url_for('logout') }}">
+                Sair
+            </a>
+
+        </header>
+
+        <main class="turmas">
+
+            {% for turma in turmas %}
+
+                <a href="{{ url_for('chamada', turma_id=turma.id) }}"
+                   class="turma">
+
+                    <div class="numero">
+                        {{ "%02d"|format(turma.id) }}
+                    </div>
+
+                    <div class="turma-info">
+                        <h2>{{ turma.nome }}</h2>
+                        <p>Ver alunos</p>
+                    </div>
+
+                    <div class="seta">›</div>
+
+                </a>
+
+            {% endfor %}
+
+        </main>
+
+        <footer>
+            <p>CRISMA © 2026</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>

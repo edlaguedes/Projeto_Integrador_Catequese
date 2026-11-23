@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CRISMA - Responsáveis</title>
+
+    <link rel="stylesheet"
+      href="{{ url_for('static', filename='pais.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="logo">
+        <img src="{{ url_for('static', filename='image-removebg-preview.png') }}"
+             alt="Logo CRISMA">
+    </div>
+
+    <main>
+        <h1>Responsáveis</h1>
+        <p>Cadastre os pais e vincule seus catequizandos.</p>
+    </main>
+
+    {% if erro %}
+        <div class="erro">{{ erro }}</div>
+    {% endif %}
+
+    {% if sucesso %}
+        <div style="color: green; margin-bottom: 15px;">
+            {{ sucesso }}
+        </div>
+    {% endif %}
+
+    <form method="POST">
+
+        <label for="nome">Nome completo do responsável</label>
+        <input
+            type="text"
+            id="nome"
+            name="nome"
+            placeholder="Digite o nome completo"
+            required
+        >
+
+        <label for="email">E-mail</label>
+        <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Digite o e-mail"
+            required
+        >
+
+        <label for="senha">Senha inicial</label>
+        <input
+            type="password"
+            id="senha"
+            name="senha"
+            placeholder="Mínimo de 8 caracteres"
+            minlength="8"
+            required
+        >
+
+        <label for="alunos">Catequizandos vinculados</label>
+
+        <select
+            id="alunos"
+            name="alunos"
+            multiple
+            required
+            style="width: 100%; min-height: 180px; margin-bottom: 15px;"
+        >
+
+            {% for aluno in alunos %}
+
+                <option value="{{ aluno.id }}">
+                    {{ aluno.nome }} — {{ aluno.turma }}
+                </option>
+
+            {% endfor %}
+
+        </select>
+
+        <small>
+            Para selecionar mais de um filho, mantenha Ctrl pressionado
+            enquanto clica nos nomes.
+        </small>
+
+        <button type="submit">
+            Cadastrar responsável
+        </button>
+
+    </form>
+
+    <hr style="margin: 30px 0;">
+
+    <h2>Responsáveis cadastrados</h2>
+
+    {% for r in responsaveis %}
+
+        <div style="padding: 15px 0; border-bottom: 1px solid #ddd;">
+
+            <strong>{{ r.nome }}</strong>
+
+            <p>{{ r.email }}</p>
+
+            <small>
+                Catequizandos: {{ r.filhos or "Nenhum" }}
+            </small>
+
+        </div>
+
+    {% else %}
+
+        <p>Nenhum responsável cadastrado.</p>
+
+    {% endfor %}
+
+    <div style="margin-top: 25px;">
+        <a href="{{ url_for('turmas') }}">← Voltar para as turmas</a>
+    </div>
+
+</div>
+
+</body>
+</html>

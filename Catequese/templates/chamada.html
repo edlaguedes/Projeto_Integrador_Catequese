@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>CRISMA - Chamada</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='chamada.css') }}">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <!-- =========================================
+         CABEÇALHO
+    ========================================== -->
+
+    <header>
+
+        <div class="topo">
+
+            <a href="{{ url_for('turmas') }}"
+               class="voltar">
+
+                ← Voltar
+
+            </a>
+
+
+            <div class="logo">
+
+                <img
+                    src="{{ url_for('static', filename='image-removebg-preview.png') }}"
+                    alt="Logo CRISMA">
+
+            </div>
+
+        </div>
+
+
+        <div class="titulo">
+
+            <p class="subtitulo">
+                CONTROLE DE FREQUÊNCIA
+            </p>
+
+
+            <h1>
+                {{ turma.nome }}
+            </h1>
+
+
+            <p>
+                Registre a presença dos alunos durante
+                os {{ todos_dias|length }} dias de aula.
+            </p>
+
+        </div>
+
+       
+
+    </header>
+
+
+    <!-- =========================================
+         LEGENDA
+    ========================================== -->
+
+    <section class="legenda">
+
+        <div class="legenda-item">
+
+            <span class="bolinha normal"></span>
+
+            <span>
+                Normal
+            </span>
+
+        </div>
+
+
+        <div class="legenda-item">
+
+            <span class="bolinha alerta"></span>
+
+            <span>
+                Alerta: 3 ou mais faltas
+            </span>
+
+        </div>
+
+    </section>
+    
+    <div class="meses">
+    {% for m in meses %}
+        <a href="?mes={{ m.valor }}"
+           class="{{ 'ativo' if m.ativo else '' }}">
+            {{ m.rotulo }}
+        </a>
+    {% endfor %}
+    </div>
+
+    <!-- =========================================
+         TABELA
+    ========================================== -->
+
+    <section class="tabela-container">
+
+
+        <table>
+
+
+            <thead>
+
+                <tr>
+
+
+                    <th class="aluno-coluna">
+
+                        Aluno
+
+                    </th>
+
+
+                    {% for dia in dias %}
+
+                    <th>
+
+                        <div class="dia">
+
+                            Dia {{ "%02d"|format(todos_dias.index(dia) + 1) }}
+                        </div>
+
+
+                        <div class="data">
+
+                            {{ dia.strftime("%d/%m") }}
+
+                        </div>
+
+                    </th>
+
+                    {% endfor %}
+
+
+                    <th class="status-coluna">
+
+                        Status
+
+                    </th>
+
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+
+            {% for aluno in alunos %}
+
+
+                <tr
+                    id="aluno-{{ aluno.id }}"
+                    data-aluno-id="{{ aluno.id }}"
+                >
+
+
+                    <!-- NOME -->
+
+                    <td class="nome-aluno">
+
+                        {{ aluno.nome }}
+
+                    </td>
+
+
+                    <!-- DIAS -->
+
+                    {% for dia in dias %}
+
+
+                        {% set chave = (aluno.id, dia.isoformat()) %}
+
+                        {% set marcado = mapa.get(chave) %}
+
+
+                        <td>
+
+
+                            <div class="botoes">
+
+
+                                <!-- =========================
+                                     PRESENTE
+                                ========================== -->
+
+                                <button
+                                    type="button"
+                                    class="presente {% if marcado == true %}selecionado{% endif %}"
+                                    data-aluno-id="{{ aluno.id }}"
+                                    data-data="{{ dia.isoformat() }}"
+                                    data-presente="true"
+                                >
+
+                                    Presente
+
+                                </button>
+
+
+                                <!-- =========================
+                                     FALTA
+                                ========================== -->
+
+                                <button
+                                    type="button"
+                                    class="falta {% if marcado == false %}selecionado{% endif %}"
+                                    data-aluno-id="{{ aluno.id }}"
+                                    data-data="{{ dia.isoformat() }}"
+                                    data-presente="false"
+                                >
+
+                                    Falta
+
+                                </button>
+
+
+                            </div>
+
+
+                        </td>
+
+
+                    {% endfor %}
+
+
+                    <!-- STATUS -->
+
+                    <td class="status">
+
+
+                        <span
+                            class="status-text {% if aluno.faltas >= 3 %}status-alerta{% else %}status-normal{% endif %}"
+                        >
+
+                            {{ aluno.status }}
+
+                        </span>
+
+
+                        <span class="contador">
+
+                            {{ aluno.faltas }}
+
+                            falta{% if aluno.faltas != 1 %}s{% endif %}
+
+                        </span>
+
+
+                    </td>
+
+
+                </tr>
+
+
+            {% endfor %}
+
+
+            </tbody>
+
+
+        </table>
+
+
+    </section>
+
+
+    <!-- =========================================
+         OBSERVAÇÃO
+    ========================================== -->
+
+    <div class="observacao">
+
+        <strong>⚠ Atenção:</strong>
+
+        quando um aluno atingir
+
+        <strong>3 faltas</strong>,
+
+        seu status será alterado automaticamente para
+
+        <strong>Alerta</strong>.
+
+    </div>
+
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+
+<script src="{{ url_for('static', filename='chamada.js') }}"></script>
+
+
+</body>
+
+</html>

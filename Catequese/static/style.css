@@ -1,0 +1,307 @@
+/* =========================
+   CONFIGURAÇÕES GERAIS
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #680505;
+    color: white;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+    width: 100%;
+    max-width: 300px;
+
+    text-align: center;
+
+    padding: 20px 0;
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+    margin-bottom: 8px;
+}
+
+.logo img {
+    width: 300px;
+    height: 300px;
+
+    object-fit: contain;
+}
+
+
+/* =========================
+   TÍTULO
+========================= */
+
+main h1 {
+    font-size: 25px;
+    font-weight: 700;
+
+    color: white;
+
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   TEXTO
+========================= */
+
+main p {
+    font-size: 12px;
+    font-weight: 600;
+
+    line-height: 17px;
+
+    color: white;
+
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   FORMULÁRIO
+========================= */
+
+form {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    text-align: left;
+}
+
+
+/* =========================
+   LABEL
+========================= */
+
+form label {
+    font-size: 12px;
+    font-weight: 500;
+
+    color: white;
+
+    margin-bottom: 5px;
+}
+
+
+/* =========================
+INPUT
+========================= */
+
+form input {
+    width: 100%;
+    height: 37px;
+
+    padding: 0 12px;
+
+    border: 1px solid white;
+    border-radius: 9px;
+
+    outline: none;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+
+    /* COR DO TEXTO DIGITADO */
+    color: #680505;
+
+    /* FUNDO */
+    background-color: #ffffff;
+
+    margin-bottom: 3px;
+}
+
+form input::placeholder {
+    color: #777777;
+}
+
+form input:focus {
+    border: 2px solid #680505;
+}
+/* =========================
+   BOTÃO LOGIN
+========================= */
+
+form button {
+    width: 100%;
+    height: 37px;
+
+    border: none;
+    border-radius: 8px;
+
+    background-color: white;
+
+    color: #680505;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    margin-top: 10px;
+
+    transition: 0.2s;
+}
+
+form button:hover {
+    background-color: white;
+}
+
+
+/* =========================
+   TEXTO SOCIAL
+========================= */
+
+.social-text {
+    margin-top: 13px;
+    margin-bottom: 14px;
+}
+
+.social-text p {
+    font-size: 12px;
+    color: white;
+}
+
+
+/* =========================
+   BOTÕES SOCIAIS
+========================= */
+
+.social {
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+}
+
+.social button {
+    width: 115px;
+    height: 37px;
+
+    border-radius: 8px;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+/* GOOGLE */
+
+.google {
+    background-color:  #680505;
+
+    border: 1px solid white;
+
+    color: white;
+}
+
+.google:hover {
+    background-color: #f3f3f3;
+}
+
+
+/* FACEBOOK */
+
+.facebook {
+    background-color: white;
+    border: 1px solid white;
+
+    color: #680505;
+}
+
+.facebook:hover {
+    background-color:  white;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    margin-top: 22px;
+}
+
+.footer p {
+    font-size: 12px;
+
+    color:  white;
+}
+
+.footer a {
+    color: white;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    margin-left: 4px;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 400px) {
+
+    .container {
+        width: 90%;
+    }
+
+    .logo {
+        margin-bottom: 45px;
+    }
+
+    main h1 {
+        font-size: 23px;
+    }
+
+    .social {
+        gap: 10px;
+    }
+
+    .social button {
+        width: 110px;
+    }
+}

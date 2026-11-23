@@ -1,0 +1,220 @@
+
+/* CONFIGURAÇÕES GERAIS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f3f3;
+    color: #333;
+    min-height: 100vh;
+    padding: 30px 15px;
+}
+
+.container {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* LOGO */
+
+.logo {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.logo img {
+    max-width: 150px;
+    height: auto;
+}
+
+/* TÍTULOS */
+
+main {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: #651c32;
+    font-size: 27px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+h2 {
+    color: #651c32;
+    font-size: 21px;
+    margin-bottom: 12px;
+}
+
+h3 {
+    color: #651c32;
+    font-size: 17px;
+    margin: 20px 0 10px;
+}
+
+p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+/* FORMULÁRIOS */
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 8px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    outline: none;
+    background-color: #fff;
+}
+
+input:focus,
+select:focus {
+    border-color: #8b2948;
+    box-shadow: 0 0 0 2px rgba(139, 41, 72, 0.10);
+}
+
+select[multiple] {
+    min-height: 180px;
+}
+
+small {
+    color: #777;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+/* BOTÕES */
+
+button {
+    width: 100%;
+    padding: 13px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #651c32;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #842b47;
+}
+
+/* MENSAGENS */
+
+.erro {
+    background-color: #fce8e8;
+    color: #a12626;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 13px;
+}
+
+.sucesso {
+    background-color: #e8f5e9;
+    color: #287a35;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 13px;
+}
+
+/* PAINEL DOS PAIS */
+
+section {
+    background-color: #faf8f8;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+section p {
+    margin-bottom: 8px;
+}
+
+section strong {
+    color: #651c32;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #eee;
+}
+
+/* LINKS */
+
+a {
+    color: #7a263f;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* HISTÓRICO */
+
+section div {
+    font-size: 13px;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 15px 10px;
+    }
+
+    .container {
+        padding: 22px 18px;
+    }
+
+    h1 {
+        font-size: 23px;
+    }
+
+    h2 {
+        font-size: 19px;
+    }
+
+    .logo img {
+        max-width: 120px;
+    }
+}
